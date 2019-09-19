@@ -19,7 +19,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
   	
 	<!-- Welcome page -->
 	<welcome-file-list>
-		<welcome-file>/galeria.xhtml</welcome-file>
+		<welcome-file>/res.xhtml</welcome-file>
 	</welcome-file-list>
 
  </web-app>

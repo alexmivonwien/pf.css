@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -9,10 +8,27 @@
 <h:head>
 </h:head>
 <h:body>
+	<h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+	<h:outputStylesheet library="css" name="results.css" />
+	<h:outputScript library="primefaces" name="jquery/jquery.js"/>
+	<h:outputScript library="js" name="results.js"/>
+	<script>
+		// we need to execute the js function after the page load:
+		// @see https://stackoverflow.com/questions/8996316/how-to-execute-javascript-after-page-load
+			jQuery(window).ready(function() {
+			jQuery(window).ready(function() {
+				// twice in document.ready to execute after Primefaces callbacks
+				setScreenSize();
+				document.getElementById("homeDetailsPanelId").setAttribute("style","width:583px !important;");
+				//document.getElementById("homeDetailsPanelId").style.width = "583px !important";
+				var width = document.getElementById("homeDetailsPanelId").style.width;
+				alert (width);
+			});
+		}); 
+	</script>
 	<h:form id="resultsFormId">
-		<h:inputHidden value="#{resultsBean.screenHeight}" id="heightId" />
-		<h:inputHidden value="#{resultsBean.screenWidth}" id="widthId" />
-
+		<h:inputHidden value = "#{resultsBean.screenHeight}" id="heightId" /> 
+		<h:inputHidden value = "#{resultsBean.screenWidth}" id="widthId" /> 
 		<div class="results_and_add_div">
 			<div class="results_div">
 				<p:dataGrid id="searchResultsGrid" var="home" rowIndexVar="rowIndex"
@@ -23,10 +39,8 @@
 							<div class="col-4 col-s-6">
 								<h:link styleClass="exposeLink" outcome="expose">
 									<p:graphicImage styleClass="lrimg" id="graphicImage2"
-										value="#{imagesBean.homePictureAsStream}">
-										<f:param name="imageURL" value="#{home.mainImageTabl}" />
+										value="#{home.mainImageTabl}">
 									</p:graphicImage>
-									<f:param name="id" value="#{home.id}" />
 								</h:link>
 							</div>
 							<div id="homeDetailsPanelId" class="col-7">
@@ -50,9 +64,9 @@
 									</div>
 									<div class="ui-g-12 line-height">
 										<div class="home_facts_header">
-											<h:panelGroup class="ui-g-4">#{msg['immobilien.gesamt.miete']}</h:panelGroup>
-											<h:panelGroup class="ui-g-4">#{msg['immobilien.flaeche']}</h:panelGroup>
-											<h:panelGroup class="ui-g-4">#{msg['immobilien.zimmer.nummer']}</h:panelGroup>
+											<h:panelGroup class="ui-g-4">Rent</h:panelGroup>
+											<h:panelGroup class="ui-g-4">Area</h:panelGroup>
+											<h:panelGroup class="ui-g-4">Rooms</h:panelGroup>
 										</div>
 									</div>
 									<div class="ui-g-12 line-height">
@@ -66,41 +80,29 @@
 								<div class="aside">
 									<div>
 										<h:graphicImage library="img"
-											name="#{home.provider.value}.png"
-											alt="#{home.provider.value}" width="50" />
+											name="immowelt.png"
+											alt="Immowelt" width="50" />
 									</div>
 									<div>
 										<p:commandButton icon="pi pi-star-o"
 											actionListener="#{resultsBean.addAsAFavourite}"
 											update="@this" />
 									</div>
-									<h:panelGroup rendered="#{false}">
-										<h:graphicImage library="img" name="provisionsfrei.png"
-											alt="#{msg['immobilien.provisionsfrei']}" width="40px" />
-									#{msg['immobilien.provisionsfrei']}
-								</h:panelGroup>
 								</div>
 							</div>
 						</div>
 						<!-- class="row" -->
-					</h:panelGroup>
-					<h:panelGroup id="addDetailsRowId"
-						rendered="#{(rowIndex % 10 eq 0) and (resultsBean.showRowAdds())}">
-						<p:graphicImage styleClass="lrimg" id="addsImage"
-							value="#{imagesBean.homePictureAsStream}">
-							<f:param name="imageURL" value="#{resultsBean.addsRowImage}" />
-						</p:graphicImage>
 					</h:panelGroup>
 				</p:dataGrid>
 			</div>
 			<div class="add_div">
 				<div class="image_add_div">
 					<p:graphicImage styleClass="lrimg" id="addsImage"
-						value="#{imagesBean.homePictureAsStream}">
-						<f:param name="imageURL" value="#{resultsBean.addsColumnImage}" />
+						value="#{resultsBean.addsRowImage}">
 					</p:graphicImage>
 				</div>
 			</div>
 		</div>
 	</h:form>
 </h:body>
+</html>

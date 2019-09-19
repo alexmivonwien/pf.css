@@ -1,0 +1,312 @@
+
+.lrimg{
+    max-width:100%;
+    max-height:100%;
+}
+
+/** @see https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_col-s **/
+
+/**
+By default, padding will increase the size of the element to accommodate the gap. But if you set “box-sizing: border-box” on the element, then it will shrink the size of the content inside the element to accommodate the gap.
+**/
+* {
+  box-sizing: border-box;
+}
+
+.row{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.aside {
+  padding: 5px;
+  font-size: 12px;
+}
+
+.aside > div{
+  text-align: center;
+  line-height: 35px;
+  display: inline-block;
+}
+
+.footer {
+  background-color: #0099cc;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+.home_feautures_wrapper_div {
+    display:inline;    
+    text-align: left;  
+    font-size: 13px;
+}
+.home_features_list li{
+	border-radius: 15px;
+    display: inline;
+    padding: 5px;
+	margin: 7px;
+	background-color: #F3EADB;
+	font-family: Open Sans,arial,helvetica,droid sans,sans-serif;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+ .line-height{
+	line-height: 65%;
+}
+	
+/* Left column */
+.results_div {
+  float: left;
+  width: 100%;
+}
+
+/* adds column */
+.add_div {
+  float: left;
+  width: 0%;
+  display:none;
+}
+
+.image_add_div{
+	position:fixed;
+}
+
+.home_address{
+	font-size: 14px;
+}
+
+.home_descr{
+	font-size: 16px;
+	font-weight: 300;
+}
+
+.home_facts_header{
+	font-size: 13px;
+}
+
+.exposeLink {
+	 text-decoration: none;
+}
+
+.col-s-6{
+	height:240px;
+}
+
+@media only screen and (min-width:640px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+
+   .col-s-6{
+	 height:240px;
+   }
+   
+   .line-height{
+	line-height: 65%;
+   }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+  
+  	.col-7 {
+		width:calc(100% - 330px);
+	}
+	.col-4{
+		height:235px;
+		width:275px;
+		background-color:#c0c0c0;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.col-1{
+		width: 55px;
+	}
+	.aside > div{
+  		display: block;
+	}
+	
+	.line-height{
+		line-height: 85%;
+	}
+}
+
+@media only screen and (min-width: 900px) {
+	
+	/* Left column */
+	.results_div {
+	  float: left;
+	  width: 78%;
+	}
+	
+	/* add column */
+	.add_div {
+	  float: right;
+	  width: 20%;
+	  display:block;
+	}
+	
+	.col-7{
+		width:calc(100% - 293px);
+	}
+	.col-4{
+		height:230px;
+		width:240px;
+		background-color:#c0c0c0;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.col-1{
+		width: 53px;
+	}
+	
+   .aside > div{
+  	  display: block;
+   }
+
+    .line-height{
+	  line-height:65%;
+	}   
+
+}
+
+@media only screen and (min-width: 1000px) {
+	
+	/* Left column */
+	.results_div {
+	  float: left;
+	  width: 78%;
+	}
+	
+	/* add column */
+	.add_div {
+	  float: right;
+	  width: 20%;
+	  display:block;
+	}
+	
+	.col-7 {
+		width:calc(100% - 355px);
+	}
+	.col-4 {
+		height:240px;
+		width:300px;
+		background-color:#c0c0c0;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.col-1{
+		width: 55px;
+	}
+	
+	.line-height{
+		line-height: 100%;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	
+	/* Left column */
+	.results_div {
+	  float: left;
+	  width: 78%;
+	}
+	
+	/* add column */
+	.add_div {
+	  float: right;
+	  width: 20%;
+	  display:block;
+	}
+	
+	.col-7 {
+		width:calc(100% - 395px);
+	}
+	.col-4 {
+		height:264px;
+		width:330px;
+		background-color:#c0c0c0;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.col-1{
+		width: 65px;
+	}
+	
+	.line-height{
+		line-height: 100%;
+	}
+}
+
+@media only screen and (min-width: 1415px) {
+	/* Left column */
+	
+	.results_div {
+	  float: left;
+	  width:1120px;
+	}
+	/* add column */
+	.add_div {
+	  float: right;
+	  display:block;
+	  padding-left:15px;
+	}
+	.col-7 {
+		width:680px;
+	}
+	.col-4 {
+		height:270px;
+		width: 355px;
+		background-color:#c0c0c0;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	.col-1, .col-s-12 {
+		width: 65px;
+	}
+	
+	.content{
+		width: 1400px;
+	}
+}
